@@ -1,6 +1,6 @@
 {
-  "thumbnail": "https://wnow-modules.s3.amazonaws.com/icon_stroke_news_articlelist.svg",
-  "tag": "GNM Modules",
+  "thumbnail": "https://d30y9cdsu7xlg0.cloudfront.net/png/1036-200.png",
+  "tag": "GNM NEXGEN",
   "affiliates":["kotv","kwtv"],
   "propTypes": {
     "affiliate": "PropTypes.string"
