@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import AlmanacController from './AlmanacController'
 import SimpleDatePicker from './SimpleDatePicker'
 const ABSOLUTE_HEIGHT = 330;
