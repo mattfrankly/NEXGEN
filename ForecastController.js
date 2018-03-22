@@ -171,7 +171,7 @@ class ForecastController{
       updated: updatedtime,
       city: currentdata["location"]["#text"],
       state: currentdata["location"]["@region"],
-      conditionIcon: `http://ftpcontent.worldnow.com/griffin/gnm/testing/svg/day/${currentdata["WxIconType"]["#text"]}.svg`,
+      conditionIcon: `https://ftpcontent.worldnow.com/griffin/gnm/testing/svg/day/${currentdata["WxIconType"]["#text"]}.svg`,
       temp: currentdata["temp"]["#text"],
       conditionText: currentdata["wx"],
       feelsLike: currentdata["apparent_temp"]["#text"],

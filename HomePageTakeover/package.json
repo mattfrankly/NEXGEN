@@ -1,0 +1,26 @@
+{
+  "thumbnail": "https://wnow-modules.s3.amazonaws.com/icon_stroke_news_articlelist.svg",
+  "tag": "GNM Modules",
+  "affiliates":["kotv","kwtv"],
+  "propTypes": {
+    "affiliate": "PropTypes.string",
+    "origin" : "PropTypes.string",
+    "title" : "PropTypes.string",
+    "photoUrl" : "PropTypes.string"
+  },
+  "defaultProps": {
+    "affiliate": "kotv",
+    "origin" : "http://www.newson6.com/category/310876/terrence-crutcher-police-shooting",
+    "title" : "The Betty Shelby Saga Continues",
+    "photoUrl" : "http://kotv.images.worldnow.com/images/13859084_G.jpg"
+  },
+  "propChoices": {
+    "affiliate": [ "kotv", "kwtv"]
+  },
+  "FRN_resourceEndpoints": [
+    {
+      "url": "http://www.newson6.com/category/310876/terrence-crutcher-police-shooting?clienttype=container.json",
+      "type": "json"
+    }
+  ]
+}
