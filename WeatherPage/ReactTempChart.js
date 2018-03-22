@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts'
+import {AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts'
 import ForecastController from '../ForecastController'
 class ReactTempChart extends  Component{
   constructor(props){
@@ -44,7 +44,7 @@ class ReactTempChart extends  Component{
 
       return a
     })
-    return { data : data}
+    return {data : data}
 
   }
 

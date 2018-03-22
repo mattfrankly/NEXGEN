@@ -97,7 +97,6 @@ class MobileMegaNav extends Component {
                   </div>
                 );
               })}
-          
               {this.state.items.map((navitem, i) => {
                 return (
                   <div key={i} className={' dark-background subcategory-page ' + (navitem.active
