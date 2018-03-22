@@ -3,7 +3,6 @@ import Banner from './Banner';
 import MobileMegaNav from './MobileMegaNav';
 import CurrentConditions from './CurrentConditions';
 
-
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -114,7 +113,9 @@ class Header extends Component {
               </button>
             </div>
             <div className='pull-left '>
-              <img src={this.otsLogoUrl} className='big-ots img-responsive'/>
+              <a href={this.origin}>
+                <img src={this.otsLogoUrl} className='big-ots img-responsive'/>
+              </a>
             </div>
             <div className='pull-left visible-lg-block visible-md-block ' style={{width:'80px'}}>
               <a href={this.origin}>
@@ -131,7 +132,7 @@ class Header extends Component {
             </div>
             <div className='pull-left visible-md-block'>
               <a href={this.advertiseUrl}>
-                <img className='ad640'  src='http://kotv.imagesdua1.worldnow.com/images/14076158_G.jpg'/>
+                <img className='ad640'  src='https://ftpcontent.worldnow.com/kotv/test/don/build/img/ad-md-640x100.jpg'/>
               </a>
 
             </div>

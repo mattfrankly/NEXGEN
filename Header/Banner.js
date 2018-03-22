@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import banners_fake from './Banner_Fake';
 import UtilityBelt from './UtilityBelt';
-import VideoPlayer from './VideoPlayer'
+import VideoPlayer from '../VideoPlayer'
 //import Ajax from './Ajax';
 
 const hasLocalStorage = (function hasLocalStorage() {
@@ -241,7 +241,7 @@ class Banner extends Component {
 
   wrapperStyle() {
     if (this.state.collapsed) {
-      if (this.state.active > 0)
+      if (this.state.active )
         return {
           height: 40 + this.UtilityBeltHeight + 'px'
         }
