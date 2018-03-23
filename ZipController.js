@@ -1,4 +1,4 @@
-class ZipController{
+export default class ZipController{
   constructor(affiliate){
     this.hasLocalStorage = this.hasLocalStorage();
     this.defaultZip = affiliate == 'kotv' ? "74120" : "73179";
@@ -38,7 +38,3 @@ class ZipController{
   }
 
 }
-
-
-
-export default ZipController

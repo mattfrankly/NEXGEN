@@ -1,6 +1,7 @@
 const kotv = [{
     'title': 'Home',
-    'url': 'http://www.newson6.com/'
+    'url': 'http://www.newson6.com/',
+    'subItems' : []
   },
   {
     'title': 'News',
@@ -136,7 +137,8 @@ const kotv = [{
   },
   {
     'title': 'Recipes',
-    'url': 'http://www.newson6.com/category/116530/recipes'
+    'url': 'http://www.newson6.com/category/116530/recipes',
+    'subItems' : []
   },
   {
     'title': 'Lifestyle',
@@ -280,7 +282,8 @@ const kotv = [{
 
 const kwtv = [{
     'title': 'Home',
-    'url': 'http://www.news9.com/'
+    'url': 'http://www.news9.com/',
+    'subItems' : []
   },
   {
     'title': 'News',

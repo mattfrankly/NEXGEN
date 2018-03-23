@@ -1,5 +1,10 @@
 import XML2JS from 'xml2js';
-import ZipController from './ZipController';
+
+/* SO this is confusing, Because frankly buils the modules from within
+components/ModuleName and the working directory does not change as it traverses to the controller */
+
+import ZipController from '../ZipController'
+
 
 const dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',

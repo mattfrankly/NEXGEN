@@ -1,0 +1,290 @@
+{
+  "thumbnail": "https://wnow-modules.s3.amazonaws.com/icon_stroke_news_articlelist.svg",
+  "tag": "GNM Modules",
+  "affiliates": [
+    "kotv",
+    "kwtv"
+  ],
+  "propTypes": {
+    "affiliate": "PropTypes.string"
+  },
+  "defaultProps": {
+    "affiliate": "kwtv",
+    "nav": [
+      {
+        "title": "News",
+        "url": "http://www.news9.com/category/112032/news",
+        "subItems": [
+          {
+            "title": "9 Investigates",
+            "url": "http://www.news9.com/category/174696/9-investigates"
+          },
+          {
+            "title": "Crime",
+            "url": "http://www.news9.com/category/118245/crime"
+          },
+          {
+            "title": "Strange News",
+            "url": "http://www.news9.com/category/13544/strange-news"
+          },
+          {
+            "title": "Health",
+            "url": "http://www.news9.com/category/118786/health"
+          },
+          {
+            "title": "Politics",
+            "url": "http://www.news9.com/category/116602/politics"
+          },
+          {
+            "title": "Special Coverage",
+            "url": "http://www.news9.com/category/127295/special-coverage"
+          },
+          {
+            "title": "Oklahoma Earthquakes",
+            "url": "http://www.news9.com/category/225338/oklahoma-earthquakes"
+          },
+          {
+            "title": "Links Mentioned",
+            "url": "http://www.news9.com/category/120198/links-mentioned-on-news-9"
+          },
+          {
+            "title": "Send Us News Tips",
+            "url": "http://www.news9.com/category/120468/newstips"
+          }
+        ]
+      },
+      {
+        "title": "Weather",
+        "url": "http://www.news9.com/category/112030/weather",
+        "subItems": [
+          {
+            "title": "ESP Interactive Radar",
+            "url": "http://www.news9.com/category/158742/interactive-esp-radar"
+          },
+          {
+            "title": "U Control: Street Level",
+            "url": "http://www.news9.com/category/118562/weather-radar-page"
+          },
+          {
+            "title": "Watches & Warnings",
+            "url": "http://www.news9.com/category/198137/u-control-weather-center"
+          },
+          {
+            "title": "Air Comfort SKYCAMS",
+            "url": "http://www.news9.com/category/201373/skycam-network"
+          },
+          {
+            "title": "Weather Safety",
+            "url": "http://www.news9.com/category/119407/weather-safety"
+          },
+          {
+            "title": "Jed\"s Bus Stop Forecast",
+            "url": "http://www.news9.com/category/320843/jeds-bus-stop-forecast"
+          },
+          {
+            "title": "Lake Levels",
+            "url": "http://www.news9.com/story/7724324/oklahoma-lake-levels"
+          },
+          {
+            "title": "Live Traffic",
+            "url": "http://www.news9.com/category/197541/news-9-traffic-map"
+          }
+        ]
+      },
+      {
+        "title": "Sports",
+        "url": "http://www.news9.com/category/112033/sports",
+        "subItems": [
+          {
+            "title": "OU",
+            "url": "http://www.news9.com/category/210006/oklahoma-sooners"
+          },
+          {
+            "title": "OSU",
+            "url": "http://www.news9.com/category/210005/oklahoma-state-cowboys"
+          },
+          {
+            "title": "Thunder",
+            "url": "http://www.news9.com/category/210007/oklahoma-city-thunder"
+          },
+          {
+            "title": "Ford Sports Blitz",
+            "url": "http://www.news9.com/category/219810/oklahoma-ford-sports-blitz"
+          },
+          {
+            "title": "High School Football",
+            "url": "http://www.news9.com/category/211943/high-school-football"
+          },
+          {
+            "title": "Scores & Schedules",
+            "url": "http://www.news9.com/category/216088/high-school-football-schedule-scoreboard"
+          }
+        ]
+      },
+      {
+        "title": "Video",
+        "url": "http://www.news9.com/category/116601/video-page",
+        "subItems": [
+          {
+            "title": "Watch CBS Shows",
+            "url": "http://www.news9.com/link/288387/cbs-programming-catch-your-favorite-cbs-shows-old-favorites"
+          },
+          {
+            "title": "Video Requests",
+            "url": "http://www.news9.com/story/7593627/news-9-video-request"
+          }
+        ]
+      },
+      {
+        "title": "Lifestyle",
+        "url": "http://www.news9.com/category/68446/lifestyle",
+        "subItems": [
+          {
+            "title": "Entertainment",
+            "url": "http://www.news9.com/category/73801/entertainment"
+          },
+          {
+            "title": "Money",
+            "url": "http://www.news9.com/category/120652/money"
+          },
+          {
+            "title": "Home & Family",
+            "url": "http://www.news9.com/category/120651/home-family"
+          },
+          {
+            "title": "Health",
+            "url": "http://www.news9.com/category/38921/health"
+          },
+          {
+            "title": "Food",
+            "url": "http://www.news9.com/category/39546/food"
+          },
+          {
+            "title": "Pets",
+            "url": "http://www.news9.com/category/29878/pets"
+          },
+          {
+            "title": "Technology",
+            "url": "http://www.news9.com/category/58532/technology"
+          },
+          {
+            "title": "Travel",
+            "url": "http://www.news9.com/category/23748/travel"
+          },
+          {
+            "title": "Beauty & Style",
+            "url": "http://www.news9.com/category/76708/beauty-style"
+          },
+          {
+            "title": "Auto",
+            "url": "http://www.news9.com/category/41934/auto"
+          },
+          {
+            "title": "VideoBytes",
+            "url": "http://www.news9.com/category/120657/videobytes"
+          },
+          {
+            "title": "Press Releases",
+            "url": "http://www.news9.com/category/230909/press-releases"
+          }
+        ]
+      },
+      {
+        "title": "Community",
+        "url": "http://www.news9.com/category/112034/community",
+        "subItems": [
+          {
+            "title": "Pet Of The Week",
+            "url": "http://www.news9.com/category/138409/pet-of-the-week-main"
+          },
+          {
+            "title": "Food For Kids",
+            "url": "http://www.news9.com/category/208728/food-for-kids"
+          },
+          {
+            "title": "TV Schedule",
+            "url": "http://www.news9.com/story/11777979/tv-programming-schedule"
+          },
+          {
+            "title": "Concept Home",
+            "url": "http://www.news9.com/link/533686/concept-home"
+          },
+          {
+            "title": "NOW Cable Listings",
+            "url": "http://www.news9.com/category/277300/kwtv-channels"
+          }
+        ]
+      },
+      {
+        "title": "Contests",
+        "url": "http://www.news9.com/category/130615/contests",
+        "subItems": [
+          {
+            "title": "Globetrotter For A Day",
+            "url": "http://www.news9.com/link/797230/globetrotter-for-a-day"
+          },
+          {
+            "title": "Winners\" Circle",
+            "url": "http://www.news9.com/story/18813691/winners-circle"
+          }
+        ]
+      },
+      {
+        "title": "Recipes",
+        "url": "http://www.news9.com/category/116604/recipes",
+        "subItems": [
+          {
+            "title": "By Specialty",
+            "url": "http://www.news9.com/category/213841/recipe-by-specialty"
+          },
+          {
+            "title": "By Type",
+            "url": "http://www.news9.com/category/213840/recipe-by-type"
+          },
+          {
+            "title": "Appetizers & Side Dishes",
+            "url": "http://www.news9.com/category/120221/appetizersside-dishes"
+          },
+          {
+            "title": "Dessert",
+            "url": "http://www.news9.com/category/120219/dessert"
+          },
+          {
+            "title": "Drinks",
+            "url": "http://www.news9.com/category/33990/drinks"
+          },
+          {
+            "title": "Breakfast",
+            "url": "http://www.news9.com/category/120212/breakfast"
+          }
+        ]
+      },
+      {
+        "title": "About Us",
+        "url": "http://www.news9.com/category/156309/about-us",
+        "subItems": [
+          {
+            "title": "Contact Us",
+            "url": "http://www.news9.com/"
+          },
+          {
+            "title": "Careers",
+            "url": "http://www.news9.com/category/119561/employment-opportunities"
+          }
+        ]
+      }
+    ]
+  },
+  "propChoices": {
+    "affiliate": [
+      "kotv",
+      "kwtv"
+    ]
+  },
+  "FRN_resourceEndpoints": [
+    {
+      "url": "",
+      "type": "json"
+    }
+  ]
+}

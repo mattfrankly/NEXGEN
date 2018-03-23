@@ -6460,7 +6460,7 @@ fieldset[disabled] [class^="gnm-"] a.btn {
   padding-top: 9px; }
 
 .gnm-mobile-mega-nav .search-container {
-  min-height: 40px;
+  height: 42px;
   visibility: hidden; }
 
 .gnm-mobile-mega-nav .input-group {

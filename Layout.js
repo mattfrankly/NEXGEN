@@ -3,19 +3,19 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import Footer from './Footer/index';
-import Header from './Header/index'
-import {kotv, kwtv} from './TempNav'
-const affiliate = 'kotv'
+import Header from './Header/index';
+var kwtv = require('./Header/package-kwtv.json')
+var kotv = require('./Header/package.json')
 
-const nav = affiliate === 'kotv'
-  ? kotv
-  : kwtv;
-console.log('Running locally as ' + affiliate)
+var props = kotv.defaultProps;
+
+console.log('Running locally as ' + props.affiliate)
+
 export default class Layout extends Component {
   render() {
     return (
       <div >
-        <Header affiliate={affiliate} nav={nav}/>
+        <Header affiliate={props.affiliate} nav={props.nav}/>
         <div id='gnm-main-body'>
           <div className='gnm-home container'>
             <div className='row'>
@@ -27,7 +27,7 @@ export default class Layout extends Component {
         </div>
         <div className='frankly-core-ComponentContainer'>
           <div className='frn-u-grid-gutter-lg col-xl-12 '>
-            <Footer affiliate={affiliate}/>
+            <Footer affiliate={props.affiliate}/>
           </div>
         </div>
 

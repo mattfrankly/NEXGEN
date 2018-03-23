@@ -4,10 +4,11 @@ class MobileMegaNav extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      open: props.open
-        ? true
-        : false,
-      items: []
+      open: false,
+      items: props.nav.map((n=> {
+        n.active=false;
+         return n
+       }))
     }
 
     this.toggleParent = props.toggle;
@@ -17,10 +18,11 @@ class MobileMegaNav extends Component {
 
   componentWillReceiveProps(nextProps) {
     /* it will not likely mount with the menu already */
-    nextProps.items.forEach(i => {
+    nextProps.nav.forEach(i => {
       i.active = false;
     })
-    this.setState({items: nextProps.items, open: nextProps.open})  }
+    this.setState({items: nextProps.nav, open: nextProps.open})
+   }
 
   toggleSubMenu(i) {
     /* don't forget to close the others */
@@ -111,17 +113,19 @@ class MobileMegaNav extends Component {
                           </div>
                         </a>
                       </div>
-                      {navitem.subItems.map((subitem, j) => {
-                        return (
-                          <div key={j} className='row hover-color  category subcategory'>
-                            <a href={subitem.url} onClick={this.toggleMenu}>
-                              <div className='col-xs-12 tiny-padding-top'>
-                                <span >{subitem.title}</span>
-                              </div>
-                            </a>
-                          </div>
-                        );
-                      })}
+                      {
+                        navitem.subItems.map((subitem, j) => {
+                          return (
+                            <div key={j} className='row hover-color  category subcategory'>
+                              <a href={subitem.url} onClick={this.toggleMenu}>
+                                <div className='col-xs-12 tiny-padding-top'>
+                                  <span >{subitem.title}</span>
+                                </div>
+                              </a>
+                            </div>
+                          );
+                        })
+                    }
                     </div>
                   </div>
                 )

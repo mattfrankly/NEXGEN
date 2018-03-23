@@ -6,11 +6,7 @@ import CurrentConditions from './CurrentConditions';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.nav = props.nav;
-    this.stationID = props.affiliate === 'kwtv'
-      ? 2
-      : 1; //Dont beleive this has been set yet
-    this.affiliate = props.affiliate;
+
     this.origin = props.affiliate == 'kotv' ? 'http://www.newson6.com/' : 'http://www.news9.com';
     this.advertiseUrl = props.affiliate =='kotv' ? 'http://www.newson6.com/category/121047/advertise-on-the-news-on-6' : 'http://www.news9.com/category/120574/advertising-news-9';
     /* this sucks frankly can't deal with svgs yet*/
@@ -20,11 +16,11 @@ class Header extends Component {
     this.otsLogoUrl = props.affiliate == 'kotv'
       ? 'https://ftpcontent.worldnow.com/kotv/test/don/build/img/n6logo.svg'
       : 'https://ftpcontent.worldnow.com/kotv/test/don/build/img/n9logo.svg';
-    this.navigation_data = props.cache;
+
     this.state = {
-      navItems: [],
-      megaNavItems: [],
-      mobileMegaNavItems: [],
+      // navItems: [],
+      // megaNavItems: [],
+      // mobileMegaNavItems: [],
       mobileMegaNavOpen: false
     }
   }
@@ -70,26 +66,26 @@ class Header extends Component {
 
 
   componentWillMount() {
-    this.buildState(this.nav)
+  //  this.buildState(this.props.nav)
 
   }
 
-  buildState(navs) {
-    let navItems = [];
-    let megaNavItems = [];
-    let mobileMegaNavItems = [];
-    navs.map(function(item, i) {
-      if (typeof item.subItems !== 'undefined' && item.title !== 'About Us' && item.title !== 'Video' && item.title != 'Contests' && item.title !== 'Home') {
-        megaNavItems.push(item);
-      }
-      if (typeof item.subItems !== 'undefined' && item.title !== 'Home')
-        mobileMegaNavItems.push(item);
-      if (item.title !== 'About Us' && item.title !== 'Home') {
-        navItems.push(item);
-      }
-    });
-    this.setState({navItems: navItems, megaNavItems: megaNavItems, mobileMegaNavItems: mobileMegaNavItems});
-  }
+  // buildState(navs) {
+  //   let navItems = [];
+  //   let megaNavItems = [];
+  //   let mobileMegaNavItems = [];
+  //   navs.map(function(item, i) {
+  //     if (typeof item.subItems !== 'undefined' && item.title !== 'About Us' && item.title !== 'Video' && item.title != 'Contests' && item.title !== 'Home') {
+  //       megaNavItems.push(item);
+  //     }
+  //     if (typeof item.subItems !== 'undefined' && item.title !== 'Home')
+  //       mobileMegaNavItems.push(item);
+  //     if (item.title !== 'About Us' && item.title !== 'Home') {
+  //       navItems.push(item);
+  //     }
+  //   });
+  //   this.setState({navItems: navItems, megaNavItems: megaNavItems, mobileMegaNavItems: mobileMegaNavItems});
+  // }
 
   toggleMobileMegaNav = () => {
     this.setState({
@@ -100,7 +96,7 @@ class Header extends Component {
   render() {
     return (
       <div className='gnm-header'>
-        <Banner affiliate={this.affiliate}/>
+        <Banner affiliate={this.props.affiliate}/>
         <div id='gnm-header-without-banner'>
           <div className='container'>
             <div className='pull-left'>
@@ -140,12 +136,12 @@ class Header extends Component {
               <div className='ad320' id='div-gpt-ad-5410047-2'/>
             </div>
             <div className='pull-right' >
-              <CurrentConditions affiliate={this.affiliate}/>
+              <CurrentConditions affiliate={this.props.affiliate}/>
             </div>
           </div>
         </div>
-        <MobileMegaNav affiliate={this.affiliate}
-          items={this.state.mobileMegaNavItems}
+        <MobileMegaNav affiliate={this.props.affiliate}
+          nav={this.props.nav}
            open={this.state.mobileMegaNavOpen}
            toggle={this.toggleMobileMegaNav}/>
       </div>
