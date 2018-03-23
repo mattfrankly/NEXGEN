@@ -1,5 +1,5 @@
 import XML2JS from 'xml2js';
-import ZipController from './ZipController';
+import ZipController from '../ZipController';
 
 class AlmanacController{
   constructor(affiliate){
