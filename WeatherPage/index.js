@@ -6,10 +6,9 @@ import Almanac from './Almanac'
 import SevenDayForecast from './SevenDayForecast'
 import ReactTempChart from './ReactTempChart';
 
-class WeatherBlock extends Component{
+export default class WeatherPage extends Component{
   constructor(props){
     super(props)
-    this.affiliate = this.props.affiliate
   }
 
   render() {
@@ -19,17 +18,17 @@ class WeatherBlock extends Component{
           <div className="col-md-9">
             <div className="row">
               <div className="col-xs-12">
-                <WeatherSummary affiliate={this.affiliate} />
+                <WeatherSummary affiliate={this.props.affiliate} />
               </div>
             </div>
             <div className="row">
               <div className="col-xs-12">
-                <SevenDayForecast affiliate={this.affiliate}/>
+                <SevenDayForecast affiliate={this.props.affiliate}/>
               </div>
             </div>
             <div className="row">
               <div className="col-xs-12">
-                  <ReactTempChart affiliate={this.affiliate} />
+                  <ReactTempChart affiliate={this.props.affiliate} />
               </div>
             </div>
             <div className="row">
@@ -40,12 +39,12 @@ class WeatherBlock extends Component{
                 <RadarCallToAction title="U-Control" />
               </div>
               <div className="col-md-4">
-                <SkyCam affiliate={this.affiliate} />
+                <SkyCam affiliate={this.props.affiliate} />
               </div>
             </div>
             <div className="row">
               <div className="col-xs-12">
-                <Almanac affiliate={this.affiliate} />
+                <Almanac affiliate={this.props.affiliate} />
               </div>
             </div>
           </div>
@@ -58,5 +57,3 @@ class WeatherBlock extends Component{
   }
 
 }
-
-export default WeatherBlock;

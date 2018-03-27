@@ -3,7 +3,7 @@ import XML2JS from 'xml2js';
 /* SO this is confusing, Because frankly buils the modules from within
 components/ModuleName and the working directory does not change as it traverses to the controller */
 
-import ZipController from '../ZipController'
+import ZipController from './ZipController'
 
 
 const dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -72,6 +72,8 @@ class ForecastController{
   }
 
   fetch(callback){
+    if(typeof window != 'object')
+      return 
     this.Ajax(this.feedUrl + this.zips.get()[0] + '&usingForecastController=true').then((data)=>{
       let forecastData = this.convertToJson(data)
       localStorage.setItem('forecastData', JSON.stringify(forecastData))

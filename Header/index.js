@@ -7,6 +7,7 @@ class Header extends Component {
   constructor(props) {
     super(props);
 
+
     this.origin = props.affiliate == 'kotv' ? 'http://www.newson6.com/' : 'http://www.news9.com';
     this.advertiseUrl = props.affiliate =='kotv' ? 'http://www.newson6.com/category/121047/advertise-on-the-news-on-6' : 'http://www.news9.com/category/120574/advertising-news-9';
     /* this sucks frankly can't deal with svgs yet*/
@@ -18,9 +19,6 @@ class Header extends Component {
       : 'https://ftpcontent.worldnow.com/kotv/test/don/build/img/n9logo.svg';
 
     this.state = {
-      // navItems: [],
-      // megaNavItems: [],
-      // mobileMegaNavItems: [],
       mobileMegaNavOpen: false
     }
   }
@@ -65,27 +63,6 @@ class Header extends Component {
   }
 
 
-  componentWillMount() {
-  //  this.buildState(this.props.nav)
-
-  }
-
-  // buildState(navs) {
-  //   let navItems = [];
-  //   let megaNavItems = [];
-  //   let mobileMegaNavItems = [];
-  //   navs.map(function(item, i) {
-  //     if (typeof item.subItems !== 'undefined' && item.title !== 'About Us' && item.title !== 'Video' && item.title != 'Contests' && item.title !== 'Home') {
-  //       megaNavItems.push(item);
-  //     }
-  //     if (typeof item.subItems !== 'undefined' && item.title !== 'Home')
-  //       mobileMegaNavItems.push(item);
-  //     if (item.title !== 'About Us' && item.title !== 'Home') {
-  //       navItems.push(item);
-  //     }
-  //   });
-  //   this.setState({navItems: navItems, megaNavItems: megaNavItems, mobileMegaNavItems: mobileMegaNavItems});
-  // }
 
   toggleMobileMegaNav = () => {
     this.setState({

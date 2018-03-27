@@ -9,7 +9,7 @@
     "affiliate": "PropTypes.string"
   },
   "defaultProps": {
-    "affiliate": "kotv"
+    "affiliate": "kwtv"
   },
   "propChoices": {
     "affiliate": [

@@ -8007,9 +8007,7 @@ fieldset[disabled] [class^="gnm-"] a.btn {
   float: left; }
 
 .gnm-weather-summary-small h1 {
-  color: white;
-  line-height: 28px;
-  padding-bottom: 10px; }
+  color: white; }
 
 .gnm-weather-summary-small h3 {
   color: white;
@@ -8621,7 +8619,7 @@ fieldset[disabled] [class^="gnm-"] a.btn {
 
 .gnm-seven-day-forecast .day {
   float: left;
-  width: 100px; }
+  width: 94px; }
 
 .gnm-seven-day-forecast .summary {
   margin: 1px;
@@ -8644,10 +8642,7 @@ fieldset[disabled] [class^="gnm-"] a.btn {
   padding: 12px 0; }
 
 .gnm-seven-day-forecast h3 {
-  color: white;
-  font-size: 26px;
-  font-weight: 700;
-  padding: 8px 0; }
+  color: white; }
 
 .gnm-seven-day-forecast h4 {
   color: white;
@@ -8747,8 +8742,7 @@ fieldset[disabled] [class^="gnm-"] a.btn {
   .gnm-seven-day-forecast h2.Sunday {
     background-color: #be0000; }
   .gnm-seven-day-forecast h3 {
-    color: black;
-    font-weight: 500; }
+    color: black; }
   .gnm-seven-day-forecast h4 {
     color: #999999;
     font-weight: 400; }

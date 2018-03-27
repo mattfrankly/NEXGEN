@@ -1,6 +1,6 @@
 {
   "thumbnail": "https://wnow-modules.s3.amazonaws.com/icon_stroke_news_articlelist.svg",
-  "tag": "GNM Modules",
+  "tag": "NEXGEN",
   "affiliates":["kotv","kwtv"],
   "propTypes": {
     "affiliate": "PropTypes.string"
@@ -141,7 +141,7 @@
           }
         ]
       },
-    
+
       {
         "title": "Lifestyle",
         "url": "http://www.newson6.com/category/68446/lifestyle",

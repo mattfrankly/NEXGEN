@@ -102,7 +102,7 @@ class WeatherSummary extends Component{
               <p>{this.state.updated} in <a href="#loc">{this.state.city}, {this.state.state}</a></p>
               <div  className="icon-container">
                 <svg viewBox="0 0 100 50" fill="transparent">
-                  <path d="M 50,50 m -49,0 a 49,49 0 1 1 98,0" stroke="#edebeb" strokeWidth="2" fillOpacity="0"></path>
+                  <path d="M 50,50 m -49,0 a 49,49 0 1 1 98,0" stroke="#edebeb" strokeWidth="1" fillOpacity="0"></path>
                   <path d="M 50,50 m -49,0 a 49,49 0 1 1 98,0"
                     stroke={this.rgb()}
                     strokeWidth="3"
