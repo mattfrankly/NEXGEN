@@ -89,13 +89,13 @@ class HomePageTakeover extends Component {
                       </div>
                       <div className='col-xs-12 secondary-title-container'>
                         <a href={s.link} className='secondary-title'>
-                          <span >{s.headline.replace(/<\/?[^>]+(>|$)/g, "").replace(/\&(.*?)\;/g,' ')
+                          <span >{s.headline.replace(/<\/?[^>]+(>|$)/g, "").replace(/&(.*?);/g,' ')
                             /* we have a problem with literal &nbsp; tags in this string */
                           }</span>
                         </a>
                       </div>
                       <div className='col-sm-12 hidden-sm secondary-subtitle'>
-                        <span>{s.abstract.replace(/<\/?[^>]+(>|$)/g, "").replace(/\&(.*?)\;/g,' ') }</span>
+                        <span>{s.abstract.replace(/<\/?[^>]+(>|$)/g, "").replace(/&(.*?);/g,' ') }</span>
                       </div>
                     </div>
                   )
