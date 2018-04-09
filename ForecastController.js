@@ -54,7 +54,7 @@ function fetch(callback){
     console.log("*** ForecastController fetch");
     if(typeof window != 'object')
       return
-      console.log("*** ForecastController fetch try");
+      console.log("*** ForecastController fetch try: url()", url());
       try{
         let req = new XMLHttpRequest();
         req.open('GET', url());
