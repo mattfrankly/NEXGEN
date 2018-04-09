@@ -54,14 +54,18 @@ function fetch(callback){
     console.log("*** ForecastController fetch");
     if(typeof window != 'object')
       return
+      console.log("*** ForecastController fetch try");
       try{
         let req = new XMLHttpRequest();
         req.open('GET', url());
         req.onload = function() {
           if (req.status === 200) {
+            console.log("*** ForecastController fetch try req.status === 200");
 
             try{
               var forecastData = convertToJson(req.response)
+              console.log("*** ForecastController fetch try forecastData", forecastData);
+
             }
             catch(e){
               localStorage.removeItem('forecastData')
@@ -76,10 +80,12 @@ function fetch(callback){
             if(callback)
               callback( forecastData )
           } else {
+            console.log("*** ForecastController fetch try ERROR req.statusText", req.statusText);
             throw new Error(req.statusText )
           }
         };
         req.onerror = function() {
+          console.log("*** ForecastController fetch try ERROR");
           throw new Error('Network error from ' + url() );
         };
         req.send();
