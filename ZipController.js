@@ -3,6 +3,8 @@ var affiliateAlreadySet = false;
 var affiliate = 'kotv';
 
 function getAffiliate(){
+  console.log("*** ZipController getAffiliate()");
+  console.log("*** ZipController getAffiliate() affiliate ", affiliate);
   return affiliate
 }
 function defaultZip(){
@@ -24,6 +26,7 @@ function clear(){
 }
 
 function get(){
+  console.log("*** ZipController get()");
   if(typeof window !== 'object')
     return defaultZip()
   //only on browser
