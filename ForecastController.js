@@ -33,19 +33,25 @@ function url(){
 
 function get(callback){
     console.log("*** ForecastController");
-    if(hasLocalStorage)
-      if(localStorage.getItem('forecastData') && localStorage.getItem('forecastDataTimestamp'))
+    if(hasLocalStorage) {
+      console.log("*** ForecastController hasLocalStorage");
+      if(localStorage.getItem('forecastData') && localStorage.getItem('forecastDataTimestamp')) {
+      console.log("*** ForecastController hasLocalStorage && getItem");
         if( Date.now() < parseInt(localStorage.getItem('forecastDataTimestamp'),10) + cacheDuration ){
+          console.log("*** ForecastController hasLocalStorage && getItem && Date");
           let forecastData = JSON.parse(localStorage.getItem('forecastData'))
           callback(forecastData )
           return;
         }
+      }
+    }
     fetch(callback)
   }
 
 
 
 function fetch(callback){
+    console.log("*** ForecastController fetch");
     if(typeof window != 'object')
       return
       try{
