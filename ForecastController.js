@@ -32,6 +32,7 @@ function url(){
 
 
 function get(callback){
+    console.log("*** ForecastController");
     if(hasLocalStorage)
       if(localStorage.getItem('forecastData') && localStorage.getItem('forecastDataTimestamp'))
         if( Date.now() < parseInt(localStorage.getItem('forecastDataTimestamp'),10) + cacheDuration ){
