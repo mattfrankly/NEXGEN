@@ -3,9 +3,9 @@ var affiliateAlreadySet = false;
 var affiliate = 'kotv';
 
 function getAffiliate(){
-  console.log("*** ZipController getAffiliate()");
+//   console.log("*** ZipController getAffiliate()");
 //   console.log("*** ZipController getAffiliate() affiliate ", affiliate);
-  return affiliate
+  return affiliate;
 }
 function defaultZip(){
   return affiliate == 'kotv' ? "74120" : "73179";
