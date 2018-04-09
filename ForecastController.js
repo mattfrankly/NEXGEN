@@ -25,9 +25,10 @@ var wait = false;
 
 
 function url(){
+  console.log("*** ForecastController url()");
   var site = ZipController.getAffiliate() === 'kotv' ? '1': '2'
   var zip = ZipController.get()
-    console.log("*** ForecastController url() ", `https://kotv.com/api/GetForecast.ashx?target=data&action=WxForecast2012&site=${site}&zip=${zip}`);
+//   console.log("*** ForecastController url() result:", `https://kotv.com/api/GetForecast.ashx?target=data&action=WxForecast2012&site=${site}&zip=${zip}`);
   return `https://kotv.com/api/GetForecast.ashx?target=data&action=WxForecast2012&site=${site}&zip=${zip}`
 }
 
