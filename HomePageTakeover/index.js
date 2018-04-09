@@ -31,17 +31,17 @@ class HomePageTakeover extends Component {
 
   componentWillMount () {
 
-    if(typeof window === 'object'){
-      this.ajax(this.props.origin+ '?clienttype=container.json', (res)=>{
-        res = JSON.parse(res)
-        res.features.map(function(s,i,a){
-          if(!s.abstractimage)
-            s.abstractimage = {}
-          return s
-        })
-        this.setState({stories: res.features})
-      })
-    }
+    // if(typeof window === 'object'){
+    //   this.ajax(this.props.origin+ '?clienttype=container.json', (res)=>{
+    //     res = JSON.parse(res)
+    //     res.features.map(function(s,i,a){
+    //       if(!s.abstractimage)
+    //         s.abstractimage = {}
+    //       return s
+    //     })
+    //     this.setState({stories: res.features})
+    //   })
+    // }
 
   }
   componentDidMount () {
