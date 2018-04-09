@@ -27,6 +27,7 @@ var wait = false;
 function url(){
   var site = ZipController.getAffiliate() === 'kotv' ? '1': '2'
   var zip = ZipController.get()
+    console.log("*** ForecastController url() ", `https://kotv.com/api/GetForecast.ashx?target=data&action=WxForecast2012&site=${site}&zip=${zip}`);
   return `https://kotv.com/api/GetForecast.ashx?target=data&action=WxForecast2012&site=${site}&zip=${zip}`
 }
 
@@ -54,7 +55,7 @@ function fetch(callback){
     console.log("*** ForecastController fetch");
     if(typeof window != 'object')
       return
-      console.log("*** ForecastController fetch try: url()", url());
+      console.log("*** ForecastController fetch try");
       try{
         let req = new XMLHttpRequest();
         req.open('GET', url());
