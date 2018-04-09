@@ -3,7 +3,8 @@
   "tag": "NEXGEN",
   "affiliates": [
     "kotv",
-    "kwtv"
+    "kwtv",
+    "modulesDemo"
   ],
   "propTypes": {
     "affiliate": "PropTypes.string"
