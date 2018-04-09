@@ -4,7 +4,7 @@ import RadarCallToAction from './RadarCallToAction';
 import WeatherSummary from './WeatherSummary';
 import Almanac from './Almanac'
 import SevenDayForecast from './SevenDayForecast'
-//import ReactTempChart from './ReactTempChart';
+import ReactTempChart from './ReactTempChart';
 import WeatherAppAdvert from './WeatherAppAdvert';
 
 
@@ -81,8 +81,7 @@ export default class WeatherPage extends Component{
             </div>
             <div className="row">
               <div className="col-xs-12" style={{paddingLeft:'0px',paddingRight:'0px'}}>
-                {//<ReactTempChart affiliate={this.affiliate} />
-              }
+                <ReactTempChart affiliate={this.affiliate} />
               </div>
             </div>
             <div className="row">
