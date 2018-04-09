@@ -10,16 +10,16 @@
   },
   "defaultProps": {
     "affiliate": "kotv",
-    "origin" : "http://www.newson6.com/category/310876/terrence-crutcher-police-shooting",
-    "title" : "The Betty Shelby Saga Continues",
-    "photoUrl" : "http://kotv.images.worldnow.com/images/13859084_G.jpg"
+    "origin" : "http://www.newson6.com/category/331247/school-shutdown-feed",
+    "title" : "",
+    "photoUrl" : "http://KOTV.images.worldnow.com/images/16432230_G.jpg"
   },
   "propChoices": {
     "affiliate": [ "kotv", "kwtv"]
   },
   "FRN_resourceEndpoints": [
     {
-      "url": "http://www.newson6.com/category/310876/terrence-crutcher-police-shooting?clienttype=container.json",
+      "url": "",
       "type": "json"
     }
   ]

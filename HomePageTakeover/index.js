@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 
+
 class HomePageTakeover extends Component {
   constructor (props) { // gives us acces to props, fires long before page load
     super(props) // assigns props to this.props
+    //this.imgUrl = 'http://ftpcontent.worldnow.com/kotv/test/don/build/';
 
-
-
-    this.imgUrl = 'http://ftpcontent.worldnow.com/kotv/test/don/build/';
     this.state = {
       stories: []
     } /* great place to assign default state */;
     this.stories = props.FRN_rawResponses;
-
   }
 
   ajax = (url,callback) => {
@@ -32,14 +30,18 @@ class HomePageTakeover extends Component {
 
 
   componentWillMount () {
+
     if(typeof window === 'object'){
       this.ajax(this.props.origin+ '?clienttype=container.json', (res)=>{
         res = JSON.parse(res)
-        console.log(res)
+        res.features.map(function(s,i,a){
+          if(!s.abstractimage)
+            s.abstractimage = {}
+          return s
+        })
         this.setState({stories: res.features})
       })
     }
-
 
   }
   componentDidMount () {
@@ -58,13 +60,15 @@ class HomePageTakeover extends Component {
   componentWillUnmount () { /* GREAT place to kill any network requests, or any Timeout or Interval functions trying up resources. Last stop before we are destroyed.  */ }
 
   render () { // REQUIRED
-    return (<div className='gnm-home-page-takeover'>
-      <div className='row overlaid-contents'>
-        <div className='col-sm-7 col-md-8 col-xs-12 left-column'>
+    return (
+    <div className='gnm-home-page-takeover'>
+      <div className='row  hidden-xs background-image-row' style={{backgroundImage: `url('${this.props.photoUrl}')`}} >
+        <div className='col-sm-7 col-md-8 col-xs-12' >
           <h1 className='main-title'>{this.props.title}</h1>
+
         </div>
         <div className=' col-sm-5 col-md-4 right-column hidden-xs '>
-          <div className='dark-opacity fill-all'>
+          <div className='dark-opacity '>
             <div className='right-column-contents'>
               <div className='row'>
                 <div className='col-xs-12'>
@@ -80,22 +84,23 @@ class HomePageTakeover extends Component {
                     <div className='row secondary-story' key={i}>
                       <div className='col-xs-12'>
                         <a href={s.link}>
-                          <img className='img-responsive' src={s.abstractimage.filename } />
+                          <img className='img-responsive' src={s.abstractimage.filename || '' } />
                         </a>
                       </div>
                       <div className='col-xs-12 secondary-title-container'>
                         <a href={s.link} className='secondary-title'>
-                          <span >{s.headline.replace(/<\/?[^>]+(>|$)/g, "")}</span>
+                          <span >{s.headline.replace(/<\/?[^>]+(>|$)/g, "").replace(/\&(.*?)\;/g,' ')
+                            /* we have a problem with literal &nbsp; tags in this string */
+                          }</span>
                         </a>
                       </div>
                       <div className='col-sm-12 hidden-sm secondary-subtitle'>
-                        <span>{s.abstract.replace(/<\/?[^>]+(>|$)/g, "") }</span>
+                        <span>{s.abstract.replace(/<\/?[^>]+(>|$)/g, "").replace(/\&(.*?)\;/g,' ') }</span>
                       </div>
                     </div>
                   )
                 })
               }
-
 
               {
                 this.state.stories.slice(1,4).map(function(s,i,a){
@@ -105,7 +110,7 @@ class HomePageTakeover extends Component {
                       <div className='row related-story '>
                         <div className='col-xs-5 hidden-sm related-stories-photo-col'>
                           <a href={s.link}>
-                            <img className='img-responsive' src={s.abstractimage.filename} />
+                            <img className='img-responsive' src={s.abstractimage.filename || ''} />
                           </a>
                         </div>
                         <div className='col-sm-12 col-md-7 related-stories-text-col'>
@@ -130,16 +135,13 @@ class HomePageTakeover extends Component {
                   </a>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
-      <div className='main-image-container'>
-        <img className='main-image' src={this.props.photoUrl } />
-      </div>
-      <div className='row visible-xs-block dark-opacity xs-bottom-bar related-stories small'>
 
+      <div className='row visible-xs-block dark-opacity xs-bottom-bar related-stories small'>
+        <img className="img-responsive" src={this.props.photoUrl} />
         <div className='col-xs-12'>
           <a href='#' className='watch-live'>
             <span className='watch-live-text'>Watch Live</span>

@@ -1,40 +1,63 @@
-export default class ZipController{
-  constructor(affiliate){
-    this.hasLocalStorage = this.hasLocalStorage();
-    this.defaultZip = affiliate == 'kotv' ? "74120" : "73179";
-    this.zips = this.get();
+
+var affiliateAlreadySet = false;
+var affiliate = 'kotv';
+
+function getAffiliate(){
+  return affiliate
+}
+function defaultZip(){
+  return affiliate == 'kotv' ? "74120" : "73179";
+}
+
+function setAffiliate(a){
+  if(!affiliateAlreadySet){
+    affiliate = a
+    affiliateAlreadySet = true
+    return true
   }
-  hasLocalStorage(){
-    let uid = new Date();
-      try {
-          localStorage.setItem(uid, uid);
-          localStorage.removeItem(uid);
-          return true;
-      } catch (e) {
-        return false;
-      }
+  return false
+}
+
+function clear(){
+  localStorage.removeItem('weatherZipCode')
+  set(defaultZip())
+}
+
+function get(){
+  if(typeof window !== 'object')
+    return defaultZip()
+  //only on browser
+  var currentZip = localStorage.getItem('weatherZipCode')
+  if(currentZip){
+    set(currentZip)
+    return currentZip
   }
 
-  get(){
-    if(this.hasLocalStorage)
-      if(localStorage.getItem('myZips'))
-        return JSON.parse(localStorage.getItem('myZips'))
-    return [this.defaultZip]
-  }
-
-  set(zip){
-    this.zips.unshift(String(zip))
-    this.zips = this.removeDuplicates(this.zips)
-    if(this.hasLocalStorage)
-      localStorage.setItem('myZips',JSON.stringify(this.zips))
-    return this.zips;
-  }
-
-  removeDuplicates(arr){
-    let unique_array = arr.filter(function(elem, index, self) {
-        return index == self.indexOf(elem);
-    });
-    return unique_array
+  else{
+    set(defaultZip())
+    return defaultZip()
   }
 
 }
+
+function set(zip){
+
+  var maxAge = 90*24*60*60
+  document.cookie = `weatherZipCode=${zip}; max-age=${maxAge};`;
+  try{
+    localStorage.setItem('weatherZipCode', zip);
+  } catch(e){
+  }
+}
+
+function refresh(){
+    localStorage.setItem('almanacDataTimestamp', 0);
+    localStorage.setItem('forecastDataTimestamp', 0);
+
+    location.reload()
+}
+
+if(typeof window === 'object')
+  window.ZipController ={ get,set,setAffiliate,getAffiliate}
+
+export default {get,set,setAffiliate,affiliate,getAffiliate,refresh,clear}

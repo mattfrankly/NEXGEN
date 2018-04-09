@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import AlmanacController from '../AlmanacController'
 import SimpleDatePicker from './SimpleDatePicker'
+import ZipInput from '../ZipInput'
+
 const ABSOLUTE_HEIGHT = 330;
 class Almanac extends Component {
   constructor(props) { // gives us acces to props, fires long before page load
     super(props) // assigns props to this.props
     this.affiliate = props.affiliate;
-    this.almanac = new AlmanacController(props.affiliate);
+    //this.almanac = new AlmanacController(props.affiliate);
     this.state = {
       date: new Date().getTime(),
       lowest: -20,
@@ -16,25 +18,12 @@ class Almanac extends Component {
       scale: 2,
       ticks: []
     }
-    this.months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'November',
-      'October',
-      'December'
-    ]
+
     this.transition = ''
   }
 
   componentDidMount() {
-    this.almanac.get((data) => {
+    AlmanacController.get((data) => {
       this.setState(data, this.optimizeScale)
       setTimeout(() => {
         this.setState({transition: 'all 600ms ease-in-out'})
@@ -108,7 +97,7 @@ class Almanac extends Component {
   }
 
   handleDayChange = (d) => {
-    this.almanac.changeDate(d.date, (data) => {
+    AlmanacController.changeDate(d.date, (data) => {
       this.setState(data, this.optimizeScale);
     })
   }
@@ -128,14 +117,6 @@ class Almanac extends Component {
     return Math.round(200 * (val) / 54)
   }
 
-  placeHolder() {
-    var date = new Date(this.state.date)
-    let yyyy = date.getFullYear();
-    let mm = date.getMonth() + 1;
-    let dd = date.getDate();
-    let s = `${yyyy}-${mm}-${dd}`;
-    return s
-  }
   render() {
     if (!this.state.high) {
       return null
@@ -146,17 +127,21 @@ class Almanac extends Component {
       }}>
         <div className='row'>
           <div className='col-xs-12'>
-            <h2 className='title pull-left'>Climate Data for {this.state.city}, {this.state.state} on
-            </h2>
-            <div className='pull-left'>
+            <div >
+              <h5 className="big-title"><span>Historic Climate Data for </span>
+              <ZipInput>
+                <a className="dark">{this.state.city},{this.state.state}</a>
+              </ZipInput>
+              <span> on </span>
+            </h5>
               <SimpleDatePicker defaultTime={this.state.date} onDayChange={this.handleDayChange} />
             </div>
           </div>
         </div>
         <div className='row'>
           <div className='col-xs-6 col-xs-6-extra-small'>
-            <h2 >
-              Temperature</h2>
+            <h5 >
+              Historic Temperature</h5>
             <div style={{
               height: ABSOLUTE_HEIGHT + 5 + 'px',
               overflow: 'hidden',
@@ -222,7 +207,7 @@ class Almanac extends Component {
             </div>
           </div>
           <div className='col-xs-6 col-xs-6-extra-small'>
-            <h2>Precipitation</h2>
+            <h5>Historic Precipitation</h5>
             <div className=' rainfall' style={{
               height: Math.round(ABSOLUTE_HEIGHT * 0.9)
             }}>

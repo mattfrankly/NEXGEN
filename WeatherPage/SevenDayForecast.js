@@ -8,12 +8,12 @@ class SevenDayForecast extends Component{
     this.state = {
       forecasts: []
     }
-    this.ForecastController = new ForecastController(this.affiliate)
+    //this.ForecastController = new ForecastController(this.affiliate)
     this.maxTemp = 0;
   }
 
   componentWillMount(){
-    this.ForecastController.get((data)=>{
+    ForecastController.get((data)=>{
       this.massageForecast(data)
     })
   }
@@ -35,7 +35,7 @@ class SevenDayForecast extends Component{
 
         }).slice(0,this.affiliate == 'kotv' ? 7:9)}
         </div>
-        <div style={{width: '100%'}} className="visible-md-block visible-lg-block"> {/* 100 is built in to CSS*/}
+        <div className="visible-md-block visible-lg-block"> {/* 100 is built in to CSS*/}
         {this.state.forecasts.map((f,i,all)=>{
           return   <Day {...f} affiliate={this.affiliate}/>
 
@@ -83,7 +83,7 @@ class Day extends Component{
                   <div className="full-title">{this.props.extendedTitle} <span className="glyphicon glyphicon-remove"></span></div>
                   <div style={{padding:'10px'}}>
                     <div className="condition">{this.props.condition}</div>
-                    <img className="img" src={this.props.conditionicon}></img>
+                    <img className=" fixed-width" src={this.props.conditionicon}></img>
                     <span className="high">{this.props.high}&deg;</span>
                     <ul>
                       <li>Chance of Rain</li>

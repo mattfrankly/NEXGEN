@@ -131,23 +131,28 @@ class SkyCam extends Component {
   render(){
     return (<div className='gnm-skycam'  >
               <div className="toolbar">
-                <h3>{ this.props.affiliate == 'kotv'
+                <div>{ this.props.affiliate == 'kotv'
                   ? 'Osage Casino SKYCAM Network'
-                  : 'Air Comfort SKYCAM Network'}</h3>
-                <button onClick={this.decriment}>
-                  <span className="fa fa-chevron-left"></span>
-                </button>
-                <button onClick={this.increment}>
-                  <span className="fa fa-chevron-right"></span>
-                </button>
-
-                <button onClick={this.toggleVideo}>
-                  <span className="fa fa-camera" style={!this.state.video ? {color: '#111111'} : {color: '#999999'}}></span>
-                </button>
-                <button onClick={this.toggleVideo}>
-                  <span className="fa fa-video-camera" style={this.state.video ? {color: '#111111'} : {color: '#999999'}}></span>
-                </button>
-                <h4>{this.state.skyCams.length > 0 ? this.state.skyCams[this.state.index].cam_name : ''}</h4>
+                  : 'Air Comfort SKYCAM Network'}
+                  <button>
+                    <span className="fa fa-question-circle"></span>
+                  </button>
+                </div>
+                <div className="controls">
+                  <span>{this.state.skyCams.length > 0 ? this.state.skyCams[this.state.index].cam_name : ''}</span>
+                  <button onClick={this.increment}>
+                    <span className="fa fa-chevron-right"></span>
+                  </button>
+                  <button onClick={this.decriment}>
+                    <span className="fa fa-chevron-left"></span>
+                  </button>
+                  <button onClick={this.toggleVideo}>
+                    <span className="fa fa-video-camera" style={this.state.video ? {color: '#111111'} : {color: '#999999'}}></span>
+                  </button>
+                  <button onClick={this.toggleVideo}>
+                    <span className="fa fa-camera" style={!this.state.video ? {color: '#111111'} : {color: '#999999'}}></span>
+                  </button>
+                </div>
               </div>
               <div className="skycam-container" >
                 {this.state.video

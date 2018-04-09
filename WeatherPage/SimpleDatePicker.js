@@ -87,7 +87,7 @@ class SimpleDatePicker extends Component {
 
   render() {
     return (
-      <div className="gnm-simple-date-picker">
+      <span className="gnm-simple-date-picker">
         <select name="Month" defaultValue={this.state.month} onChange={this.changeMonth}>
           {this.months.map((month, i) => {
             return <option key={i} value={i}>{month}</option>
@@ -104,7 +104,7 @@ class SimpleDatePicker extends Component {
             return <option key={i} value={year}>{year}</option>
           })}
         </select>
-      </div>
+      </span>
 
     )
   }

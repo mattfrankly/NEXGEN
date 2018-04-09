@@ -98,19 +98,24 @@ class TopStories extends Component {
   render(){
     return (
       <div className='gnm-top-stories'>
-        { this.state.stories.map((s,i)=>(
-          <div key={i} className={this.classes[i]}>
-            <a className='gradient-inline-block' href={s.link} >
-              <img className='' src={s.image} alt={s.title} />
-              <div className='gradient-inline-block__headline '>
-                <span className={'category-flag ' + ( s.flagName.toLowerCase() )}>{s.flagName}</span>
-                <div className='ie-spacer' />
-                <span className='media-title'>{s.title}</span>
-                <span className='media-time'>{s.readableTimeAgo}</span>
+        <div className='row'>
+          <div className='col-xs-12'>
+            { this.state.stories.map((s,i)=>(
+              <div key={i} className={this.classes[i]}>
+                <a className='gradient-inline-block' href={s.link} >
+                  <img className='' src={s.image} alt={s.title} />
+                  <div className='gradient-inline-block__headline '>
+                    <span className={'category-flag ' + ( s.flagName.toLowerCase() )}>{s.flagName}</span>
+                    <div className='ie-spacer' />
+                    <span className='media-title'>{s.title}</span>
+                    <span className='media-time'>{s.readableTimeAgo}</span>
+                  </div>
+                </a>
               </div>
-            </a>
+              ))}
           </div>
-          ))}
+        </div>
+
       </div>
     )
   }

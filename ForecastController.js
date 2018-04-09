@@ -1,90 +1,89 @@
 import XML2JS from 'xml2js';
 
+import ZipController from './ZipController'
 /* SO this is confusing, Because frankly buils the modules from within
 components/ModuleName and the working directory does not change as it traverses to the controller */
-
-import ZipController from './ZipController'
 
 
 const dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
   'September', 'October', 'November', 'December'];
+const cacheDuration = 1000 * 15;
+const hasLocalStorage =
+(function(){
+  let uid = new Date();
+    try {
+        localStorage.setItem(uid, uid);
+        localStorage.removeItem(uid);
+        return true;
+    } catch (e) {
+      return false;
+    }
+})();
+
+var wait = false;
 
 
-class ForecastController{
-  constructor(affiliate){
-    this.stationID = affiliate == 'kotv' ? 1 : 2
-    /* the WDT feed this originates at is documented at http://wdtinc.com/skywise-home/current-forecast-documentation/
+function url(){
+  var site = ZipController.getAffiliate() === 'kotv' ? '1': '2'
+  var zip = ZipController.get()
+  return `https://kotv.com/api/GetForecast.ashx?target=data&action=WxForecast2012&site=${site}&zip=${zip}`
+}
 
-    another fun one https://wdtinc.com/skywise-home/tiles-documentation/
-    interesting additional feed here http://current-at-point-2-xml.feeds.wdtinc.com/feeds/news9/currentAtPoint2Xml.php?ZIP=76354
-    http://weather.wdtinc.com/feeds/news9/worldForecast2Xml.php?ZIP=76354
-    http://stan-hourly.feeds.wdtinc.com/feeds/news9/hourlyForecast2Xml.php?ZIP=76354
-    http://weather.wdtinc.com/feeds/news9/health.php?ZIP=76354
 
-    action = WxForecast2012
-
-    */
-    this.zips = new ZipController(affiliate)
-    this.feedUrl = `https://kotv.com/api/GetForecast.ashx?target=data&action=WxForecast2012&site=${this.stationID}&zip=`;
-    this.hasLocalStorage = this.hasLocalStorage();
-    this.cacheDuration = 1000 * 3 * 60;
-
-  }
-
-  hasLocalStorage(){
-    let uid = new Date();
-      try {
-          localStorage.setItem(uid, uid);
-          localStorage.removeItem(uid);
-          return true;
-      } catch (e) {
-        return false;
-      }
-  }
-
-  Ajax(url) {
-    return new Promise(function(resolve, reject) {
-      let req = new XMLHttpRequest();
-      req.open('GET', url);
-      req.onload = function() {
-        if (req.status === 200) {
-          resolve(req.response);
-        } else {
-          reject(new Error(req.statusText));
-        }
-      };
-      req.onerror = function() {
-        reject(new Error('Network error'));
-      };
-      req.send();
-    });
-  }
-
-  get(callback){
-    if(this.hasLocalStorage)
+function get(callback){
+    if(hasLocalStorage)
       if(localStorage.getItem('forecastData') && localStorage.getItem('forecastDataTimestamp'))
-        if( Date.now() < parseInt(localStorage.getItem('forecastDataTimestamp'),10) + this.cacheDuration ){
-          callback( JSON.parse(localStorage.getItem('forecastData')))
+        if( Date.now() < parseInt(localStorage.getItem('forecastDataTimestamp'),10) + cacheDuration ){
+          let forecastData = JSON.parse(localStorage.getItem('forecastData'))
+          callback(forecastData )
           return;
         }
-    this.fetch(callback)
+    fetch(callback)
   }
 
-  fetch(callback){
+
+
+function fetch(callback){
     if(typeof window != 'object')
-      return 
-    this.Ajax(this.feedUrl + this.zips.get()[0] + '&usingForecastController=true').then((data)=>{
-      let forecastData = this.convertToJson(data)
-      localStorage.setItem('forecastData', JSON.stringify(forecastData))
-      localStorage.setItem('forecastDataTimestamp', Date.now())
-      callback( forecastData )
-    })
+      return
+      try{
+        let req = new XMLHttpRequest();
+        req.open('GET', url());
+        req.onload = function() {
+          if (req.status === 200) {
+
+            try{
+              var forecastData = convertToJson(req.response)
+            }
+            catch(e){
+              localStorage.removeItem('forecastData')
+              localStorage.removeItem('forecastDataTimestamp')
+              ZipController.clear()
+
+              return
+            }
+
+            localStorage.setItem('forecastData', JSON.stringify(forecastData))
+            localStorage.setItem('forecastDataTimestamp', Date.now())
+            if(callback)
+              callback( forecastData )
+          } else {
+            throw new Error(req.statusText )
+          }
+        };
+        req.onerror = function() {
+          throw new Error('Network error from ' + url() );
+        };
+        req.send();
+      }
+      catch(e){
+        return false
+      }
+
   }
 
-
-
-  convertToJson(forecastdata){
+function convertToJson(forecastdata){
     function formatIcon(icon){
       if (icon.indexOf('/') > -1){
         return icon.split('/')[1];
@@ -176,6 +175,7 @@ class ForecastController{
 
     return{
       updated: updatedtime,
+      UTCtime: UTCtime,
       city: currentdata["location"]["#text"],
       state: currentdata["location"]["@region"],
       conditionIcon: `https://ftpcontent.worldnow.com/griffin/gnm/testing/svg/day/${currentdata["WxIconType"]["#text"]}.svg`,
@@ -189,10 +189,14 @@ class ForecastController{
       windDirection: currentdata["wnd_dir"],
       pressure: currentdata["press"]["#text"],
       forecasts,
-      hourly : maindata.hourly.locations.location.forecasts.hourly
+      hourly : maindata.hourly.locations.location.forecasts.hourly,
     }
   }
 
-}
 
-export default ForecastController;
+
+if(typeof window == 'object')
+  window.ForecastController = {url,get,fetch}
+
+
+export default {get}

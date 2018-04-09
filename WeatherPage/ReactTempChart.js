@@ -10,11 +10,11 @@ class ReactTempChart extends  Component{
     this.container = null
     this.affiliate = this.props.affiliate
     this.initTime = Date.now()
-    this.ForecastController = new ForecastController(this.affiliate)
+    // this.ForecastController = new ForecastController(this.affiliate)
   }
 
   componentDidMount(){ // if using componentWillMount, sometimes the data comes in before mounting, and there is now div width
-    this.ForecastController.get((data)=>{
+    ForecastController.get((data)=>{
       this.setState(this.massageData(data))
     })
   }
@@ -103,7 +103,7 @@ class ReactTempChart extends  Component{
              <Area yAxisId="right2" type="basis" dataKey="pop" stroke="white" fill="#0f3d99" activeDot={{r: 2}} dot={false} padding={{ left: 0, right: 0 }}/>
             </AreaChart>
           </div>
-        ) : <div>No Container</div>}
+        ) : <div></div>}
 
       </div>
 

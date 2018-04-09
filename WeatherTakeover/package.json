@@ -1,0 +1,21 @@
+{
+  "thumbnail": "https://wnow-modules.s3.amazonaws.com/icon_stroke_news_articlelist.svg",
+  "tag": "GNM Modules",
+  "affiliates":["kotv","kwtv"],
+  "propTypes": {
+    "affiliate": "PropTypes.string"
+
+  },
+  "defaultProps": {
+    "affiliate": "kotv"
+  },
+  "propChoices": {
+    "affiliate": [ "kotv", "kwtv"]
+  },
+  "FRN_resourceEndpoints": [
+    {
+      "url": "",
+      "type": "json"
+    }
+  ]
+}

@@ -86,8 +86,11 @@ class Banner extends Component {
     this.bannerSlider = setInterval(() => {
       this.slideBanner()
     }, this.slideDelay);
-    window.onresize = this.makeSpaceForHeader;
+    if(window){
+      window.onresize = this.makeSpaceForHeader;
+    }
     this.makeSpaceForHeader()
+
   }
 
   getDataIfNeeded() {
@@ -163,10 +166,12 @@ class Banner extends Component {
       : 0;
 
     var headerHeight = 101;
+
     if (typeof document.getElementById('gnm-header-without-banner') == 'object') {
       headerHeight = document.getElementById('gnm-header-without-banner').offsetHeight;
     }
     let new_padding = (headerHeight + banner_height + this.UtilityBeltHeight + 8) + 'px';
+
     /* really hate touching the DOM, but I don't see any way out of this */
     if (document.getElementById('gnm-main-body'))
       document.getElementById('gnm-main-body').style.paddingTop = new_padding;
@@ -258,7 +263,7 @@ class Banner extends Component {
 
   render() {
     return (
-      <div className={'gnm-banner '}>
+      <div className={'gnm-banner '} id='gnm-banner'>
         <div className='gnm-banner-control' style={this.wrapperStyle()}>
           <div className='container '>
             <button className='show-all' onClick={(e)=> this.toggleCollapsed(e)} style={{

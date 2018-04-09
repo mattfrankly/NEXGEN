@@ -1,12 +1,12 @@
 import React, {Component, PropTypes} from 'react';
 import ForecastController from '../ForecastController';
-
+import ZipInput from '../ZipInput'
 
 class CurrentConditions extends Component {
   constructor(props) { //gives us acces to props, fires long before page load
     super(props) //assigns props to this.props
     this.affiliate = props.affiliate;
-    this.forecast = new ForecastController(props.affiliate)
+    // this.forecast = new ForecastController(props.affiliate)
 
     this.state = {
       radarImg: 'https://ftpcontent.worldnow.com/kotv/MyOwnRadar/kotv/ssite/110x62/main_anim.gif?' + Date.now()
@@ -14,20 +14,22 @@ class CurrentConditions extends Component {
   }
 
   componentDidMount() {
-      this.forecast.get((data)=>{
+      ForecastController.get((data)=>{
         this.setState(data)
       })
   }
 
-
   render() {
     return (
       <div className='gnm-current-conditions'>
-          <a href='#' className={' hidden-xs hidden-sm hidden-md map-link' + (this.state.temp
-                ? ''
-                : ' hidden')/* on one occassion, this value was unset */}>{this.state.city}, {this.state.state}
-                <span className='glyphicon glyphicon-map-marker' />
-          </a>
+          <ZipInput>
+            <a  className={' hidden-xs hidden-sm hidden-md map-link' + (this.state.temp
+                  ? ''
+                  : ' hidden')/* on one occassion, this value was unset */}>{this.state.city}, {this.state.state}
+                  <span className='glyphicon glyphicon-map-marker' />
+            </a>
+          </ZipInput>
+
           <img className='pull-left condition-icon' src={this.state.conditionIcon} />
           <span className={'pull-left temperature' + (this.state.temp
               ? ''
