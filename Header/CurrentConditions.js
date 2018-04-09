@@ -6,7 +6,7 @@ class CurrentConditions extends Component {
   constructor(props) { //gives us acces to props, fires long before page load
     super(props) //assigns props to this.props
     this.affiliate = props.affiliate;
-    this.forecast = new ForecastController(props.affiliate)
+//     this.forecast = new ForecastController(props.affiliate)
 
     this.state = {
       radarImg: 'https://ftpcontent.worldnow.com/kotv/MyOwnRadar/kotv/ssite/110x62/main_anim.gif?' + Date.now()
@@ -14,6 +14,7 @@ class CurrentConditions extends Component {
   }
 
   componentDidMount() {
+      console.log("*** CurrentConditions::componentDidMount");
       ForecastController.get((data)=>{
         this.setState(data)
       })
