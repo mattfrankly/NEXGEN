@@ -16,6 +16,7 @@ class CurrentConditions extends Component {
   componentDidMount() {
       console.log("*** CurrentConditions::componentDidMount");
       ForecastController.get((data)=>{
+        console.log("*** CurrentConditions::componentDidMount ForecastController.get((data : ", data);
         this.setState(data)
       })
   }
