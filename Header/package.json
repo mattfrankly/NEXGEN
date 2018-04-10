@@ -1,7 +1,7 @@
 {
   "thumbnail": "https://wnow-modules.s3.amazonaws.com/icon_stroke_news_articlelist.svg",
   "tag": "NEXGEN",
-  "affiliates":["kotv","kwtv","modulesDemo"],
+  "affiliates":["modulesDemo"],
   "propTypes": {
     "affiliate": "PropTypes.string"
 
